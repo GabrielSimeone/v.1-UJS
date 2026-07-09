@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UJS Cabrália – União da Juventude Socialista</title>
+
+  <!-- ═══════════════════════════════════════════
+       SEO
+  ═══════════════════════════════════════════ -->
+  <meta name="description"    content="UJS Cabrália – núcleo da União da Juventude Socialista em Santa Cruz Cabrália, Bahia." />
+  <meta name="keywords"       content="UJS Cabrália, União Juventude Socialista, Santa Cruz Cabrália, Bahia, PCdoB, juventude" />
+  <meta name="author"         content="UJS Cabrália" />
+  <meta name="robots"         content="index, follow" />
+  <meta name="theme-color"    content="#c8102e" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://ujscabralia.github.io/" />
+  <meta property="og:title"       content="UJS Cabrália – União da Juventude Socialista" />
+  <meta property="og:description" content="Núcleo da UJS em Santa Cruz Cabrália, Bahia." />
+  <meta property="og:image"       content="img/og-cover.jpg" />
+  <!-- ↑ Coloque uma imagem de capa em img/og-cover.jpg (1200×630px) -->
+
+  <link rel="canonical" href="https://ujscabralia.github.io/" />
+
+  <!-- ═══════════════════════════════════════════
+       FAVICON
+       Coloque os arquivos na pasta  img/favicon/
+       Gere os tamanhos em: https://realfavicongenerator.net
+  ═══════════════════════════════════════════ -->
+  <link rel="icon"             type="image/x-icon"   href="img/favicon/favicon.ico" />
+  <link rel="icon"             type="image/png"       href="img/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon"             type="image/png"       href="img/favicon/favicon-16x16.png" sizes="16x16" />
+  <link rel="apple-touch-icon"                        href="img/favicon/apple-touch-icon.png" sizes="180x180" />
+  <link rel="manifest"                                href="img/favicon/site.webmanifest" />
+
+  <!-- ═══════════════════════════════════════════
+       FONTES
+  ═══════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+
+    /* ─────────────────────────────────────────
+       1. VARIÁVEIS E RESET
+    ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --vermelho:       #c8102e;
+      --vermelho-escuro:#8b0c1f;
+      --vermelho-claro: #e63950;
+      --verde:          #1a6b2f;
+      --verde-claro:    #2cb84f;
+      --preto:          #0d0d0d;
+      --escuro:         #161616;
+      --cinza:          #2a2a2a;
+      --branco:         #ffffff;
+
+      --fonte-titulo: 'Bebas Neue', sans-serif;
+      --fonte-corpo:  'Barlow', sans-serif;
+      --fonte-cond:   'Barlow Condensed', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--preto);
+      color: var(--branco);
+      font-family: var(--fonte-corpo);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a    { text-decoration: none; color: inherit; }
+    img  { display: block; max-width: 100%; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar       { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--preto); }
+    ::-webkit-scrollbar-thumb { background: var(--vermelho); border-radius: 3px; }
+
+
+    /* ─────────────────────────────────────────
+       2. NAVEGAÇÃO
+    ───────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 6vw; height: 64px;
+      background: rgba(13,13,13,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--vermelho);
+    }
+
+    /* Logo */
+    .nav-logo {
+      display: flex; align-items: baseline; gap: 8px;
+      font-family: var(--fonte-titulo); font-size: 1.9rem; letter-spacing: 2px;
+    }
+    .nav-logo .col-verde   { color: var(--verde-claro); }
+    .nav-logo .col-branco  { color: var(--branco); }
+    .nav-logo .col-vermelho{ color: var(--vermelho); }
+    .nav-logo .subtitulo   {
+      font-family: var(--fonte-cond); font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase; color: #555;
+      padding-bottom: 3px;
+    }
+
+    /* Links */
+    .nav-links { display: flex; list-style: none; }
+    .nav-links a {
+      display: block; padding: 6px 16px;
+      font-family: var(--fonte-cond); font-size: 0.85rem;
+      font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      color: #777; transition: color .2s; position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute;
+      left: 16px; right: 16px; bottom: -2px;
+      height: 2px; background: var(--vermelho);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .25s;
+    }
+    .nav-links a:hover,
+    .nav-links a.ativo { color: var(--branco); }
+    .nav-links a:hover::after,
+    .nav-links a.ativo::after { transform: scaleX(1); }
+
+    /* Botão de destaque no nav */
+    .nav-btn {
+      background: var(--vermelho) !important; color: var(--branco) !important;
+      padding: 7px 18px !important; font-weight: 800 !important;
+    }
+    .nav-btn::after { display: none !important; }
+    .nav-btn:hover  { background: var(--vermelho-claro) !important; }
+
+    /* Hamburguer (mobile) */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .hamburger span { display: block; width: 26px; height: 2px; background: var(--branco); }
+
+    /* Menu mobile */
+    .menu-mobile {
+      display: none; position: fixed;
+      top: 64px; left: 0; right: 0; z-index: 99;
+      background: rgba(13,13,13,0.98); backdrop-filter: blur(14px);
+      border-bottom: 2px solid var(--vermelho);
+      flex-direction: column;
+    }
+    .menu-mobile.aberto { display: flex; }
+    .menu-mobile a {
+      padding: 15px 6vw;
+      font-family: var(--fonte-cond); font-size: 1rem;
+      font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: #888; border-bottom: 1px solid #1c1c1c;
+      transition: color .2s, background .2s;
+    }
+    .menu-mobile a:hover { color: var(--branco); background: rgba(200,16,46,0.06); }
+
+
+    /* ─────────────────────────────────────────
+       3. UTILITÁRIOS DE SEÇÃO
+    ───────────────────────────────────────── */
+    section { padding: 96px 8vw; position: relative; }
+
+    .divisor {
+      height: 3px;
+      background: linear-gradient(90deg, var(--verde), var(--vermelho) 50%, var(--verde));
+    }
+
+    /* Rótulo acima do título */
+    .rotulo {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--fonte-cond); font-size: 0.7rem;
+      font-weight: 700; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--vermelho); margin-bottom: 10px;
+    }
+    .rotulo::before {
+      content: ''; display: block; width: 24px; height: 2px; background: var(--vermelho);
+    }
+
+    /* Títulos de seção */
+    .titulo-secao {
+      font-family: var(--fonte-titulo);
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1; letter-spacing: 1.5px; text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .titulo-secao .destaque-vermelho { color: var(--vermelho); }
+    .titulo-secao .destaque-verde    { color: var(--verde-claro); }
+
+    /* Parágrafo de introdução */
+    .intro {
+      font-size: 1rem; color: #999; line-height: 1.75;
+      max-width: 560px; margin-bottom: 48px;
+    }
+
+    /* Botões */
+    .btn-principal {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--vermelho); color: var(--branco);
+      padding: 13px 30px;
+      font-family: var(--fonte-cond); font-size: 0.95rem;
+      font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+      border: none; cursor: pointer;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+      transition: background .2s, transform .15s;
+    }
+    .btn-principal:hover { background: var(--vermelho-claro); transform: translateY(-2px); }
+
+    .btn-secundario {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--branco);
+      padding: 12px 30px;
+      font-family: var(--fonte-cond); font-size: 0.95rem;
+      font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      border: 1.5px solid rgba(255,255,255,0.2); cursor: pointer;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+      transition: border-color .2s, color .2s;
+    }
+    .btn-secundario:hover { border-color: var(--verde-claro); color: var(--verde-claro); }
+
+
+    /* ─────────────────────────────────────────
+       4. HERO
+    ───────────────────────────────────────── */
+    #inicio {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding-top: 64px; overflow: hidden;
+    }
+
+    /* Fundo do hero
+       ─ Troque a imagem em img/hero-bg.jpg (sugestão: foto da local) */
+    .hero-fundo {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(135deg, rgba(13,13,13,0.97) 0%, rgba(13,13,13,0.75) 55%, rgba(26,107,47,0.25) 100%),
+        radial-gradient(ellipse at 70% 50%, rgba(200,16,46,0.18) 0%, transparent 60%),
+        url('img/hero-bg.jpg') center/cover no-repeat;
+        /* ↑ img/hero-bg.jpg: foto de fundo do hero */
+    }
+
+    .hero-listras {
+      position: absolute; right: -60px; top: 0; bottom: 0; width: 50%;
+      background: repeating-linear-gradient(
+        -55deg, transparent 0, transparent 18px,
+        rgba(200,16,46,0.04) 18px, rgba(200,16,46,0.04) 20px
+      );
+      pointer-events: none;
+    }
+
+    .hero-barra {
+      position: absolute; left: 6vw; top: 15%; bottom: 15%; width: 3px;
+      background: linear-gradient(to bottom, transparent, var(--vermelho) 35%, var(--verde) 65%, transparent);
+      opacity: 0.5;
+    }
+
+    .hero-conteudo {
+      position: relative; z-index: 2;
+      padding: 0 calc(6vw + 20px);
+      max-width: 1100px;
+    }
+
+    .hero-rotulo {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--fonte-cond); font-size: 0.75rem;
+      font-weight: 700; letter-spacing: 3.5px; text-transform: uppercase;
+      color: var(--verde-claro); margin-bottom: 20px;
+    }
+    .hero-rotulo::before {
+      content: ''; width: 30px; height: 2px; background: var(--verde-claro);
+    }
+
+    .hero-titulo {
+      font-family: var(--fonte-titulo);
+      font-size: clamp(3rem, 9vw, 8rem);
+      line-height: 0.92; letter-spacing: 2px; text-transform: uppercase;
+    }
+    .hero-titulo .vermelho { color: var(--vermelho); display: block; }
+    .hero-titulo .branco   { color: var(--branco);   display: block; }
+    .hero-titulo .verde    { color: var(--verde-claro); display: block; }
+
+    .hero-descricao {
+      font-family: var(--fonte-cond); font-size: 1.1rem;
+      color: #bbb; max-width: 480px;
+      margin: 24px 0 40px;
+      border-left: 3px solid var(--vermelho);
+      padding-left: 16px; line-height: 1.6;
+    }
+
+    .hero-botoes { display: flex; flex-wrap: wrap; gap: 14px; }
+
+    .hero-seta {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      font-family: var(--fonte-cond); font-size: 0.65rem;
+      letter-spacing: 2px; text-transform: uppercase; color: #444;
+      animation: subir 2s infinite;
+    }
+    .hero-seta span { font-size: 1rem; color: var(--vermelho); }
+    @keyframes subir {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+
+    /* ─────────────────────────────────────────
+       5. LOJA 
+       ─────────────────────────────────────────
+       COMO ADICIONAR IMAGENS:
+       • Criei uma pasta  img/camisetas/
+       • Nomeie os arquivos: camisa-01.jpg, camisa-02.jpg ...
+       • Substitua o src="" de cada <img> pelo caminho correspondente
+       • Tamanho ideal: 600×600px, fundo neutro
+    ───────────────────────────────────────── */
+    #loja { background: var(--escuro); }
+
+    .grid-camisetas {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    /* Card de camiseta */
+    .card-camisa {
+      background: var(--cinza);
+      transition: transform .25s;
+    }
+    .card-camisa:hover { transform: translateY(-5px); }
+
+    /* Área da imagem */
+    .card-imagem {
+      width: 100%; aspect-ratio: 1; position: relative;
+      background: #222; /* cor de fundo enquanto a imagem carrega */
+      overflow: hidden;
+    }
+    .card-imagem img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .4s ease;
+    }
+    .card-camisa:hover .card-imagem img { transform: scale(1.04); }
+
+    /* Placeholder visível quando não há imagem */
+    .card-imagem .placeholder {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 8px;
+      color: #444; font-family: var(--fonte-cond);
+      font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+    }
+    .card-imagem .placeholder span { font-size: 3rem; }
+
+    /* Badge */
+    .card-badge {
+      position: absolute; top: 12px; left: 12px;
+      background: var(--vermelho); color: var(--branco);
+      font-family: var(--fonte-cond); font-size: 0.65rem;
+      font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+      padding: 3px 10px; z-index: 2;
+    }
+
+    /* Corpo do card */
+    .card-corpo { padding: 18px; }
+    .card-nome {
+      font-family: var(--fonte-cond); font-size: 1.05rem;
+      font-weight: 800; text-transform: uppercase;
+      color: var(--branco); margin-bottom: 4px;
+    }
+    .card-detalhe { font-size: 0.8rem; color: #666; margin-bottom: 16px; line-height: 1.5; }
+    .card-rodape  { display: flex; align-items: center; justify-content: space-between; }
+    .card-preco   {
+      font-family: var(--fonte-titulo); font-size: 1.7rem;
+      color: var(--verde-claro); letter-spacing: 1px;
+    }
+
+    .btn-pedir {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--verde); color: var(--branco);
+      padding: 9px 16px;
+      font-family: var(--fonte-cond); font-size: 0.8rem;
+      font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+      border: none; cursor: pointer;
+      clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+      transition: background .2s;
+    }
+    .btn-pedir:hover { background: var(--verde-claro); }
+
+
+    /* ─────────────────────────────────────────
+       6. QUEM SOMOS
+    ───────────────────────────────────────── */
+    #quem-somos { background: var(--preto); }
+
+    .quem-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+
+    /* Bloco visual
+       ─ Substitua url('img/quem-somos.jpg') por uma foto do núcleo local */
+    .quem-visual { position: relative; }
+
+    .quem-foto {
+      width: 100%; aspect-ratio: 4/3; object-fit: cover;
+      /* fallback se não houver foto */
+    }
+
+    /* Quando não houver foto, mostra esse bloco decorativo */
+    .quem-placeholder {
+      width: 100%; aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--vermelho-escuro) 0%, var(--preto) 100%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .quem-placeholder::before {
+      content: 'UJS';
+      font-family: var(--fonte-titulo);
+      font-size: clamp(5rem, 12vw, 10rem);
+      color: rgba(200,16,46,0.1); letter-spacing: 10px;
+    }
+    .quem-placeholder::after {
+      content: ''; position: absolute;
+      left: 0; bottom: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--verde), var(--vermelho));
+    }
+
+    .quem-ano {
+      position: absolute; top: -14px; right: -14px;
+      background: var(--vermelho); color: var(--branco);
+      font-family: var(--fonte-titulo); font-size: 1.2rem; letter-spacing: 2px;
+      padding: 10px 18px;
+    }
+
+    /* Números */
+    .quem-numeros {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; margin-top: 20px; background: #333;
+    }
+    .numero-item { background: var(--escuro); padding: 18px; text-align: center; }
+    .numero-valor {
+      font-family: var(--fonte-titulo); font-size: 2rem;
+      color: var(--vermelho); letter-spacing: 2px;
+    }
+    .numero-label {
+      font-family: var(--fonte-cond); font-size: 0.7rem;
+      font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: #555; margin-top: 2px;
+    }
+
+    /* Texto */
+    .quem-texto .intro { max-width: 100%; }
+
+    .quem-pilares { display: flex; flex-direction: column; gap: 10px; margin-top: 28px; }
+    .pilar {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 14px; background: var(--escuro);
+      border-left: 3px solid var(--vermelho);
+      transition: border-color .2s;
+    }
+    .pilar:hover { border-color: var(--verde-claro); }
+    .pilar-icone { font-size: 1.2rem; flex-shrink: 0; }
+    .pilar-titulo {
+      font-family: var(--fonte-cond); font-size: 0.88rem;
+      font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--branco); margin-bottom: 2px;
+    }
+    .pilar-desc { font-size: 0.8rem; color: #666; line-height: 1.5; }
+
+
+    /* ─────────────────────────────────────────
+       7. AÇÕES
+    ───────────────────────────────────────── */
+    #acoes { background: var(--escuro); }
+
+    .acoes-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+
+    .acao-card {
+      position: relative; overflow: hidden;
+      aspect-ratio: 3/4;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      cursor: default;
+    }
+
+    /* Fundos das ações
+       ─ Troque por url('img/acoes/acao-01.jpg') para realocar a foto 
+       ─ Tamanho ideal: 500×667px */
+    .acao-fundo { position: absolute; inset: 0; transition: transform .4s; }
+    .acao-card:hover .acao-fundo { transform: scale(1.04); }
+
+    /* Fundos dos cards de ação
+       ─ Cada classe usa a foto correspondente em img/acoes/
+       ─ O gradiente escuro sobreposto garante legibilidade do texto
+       ─ Se a imagem não existir, aparece fundo escuro neutro */
+    .acao-fundo-1 { background: #111 url('img/acoes/acao-01.jpg') center/cover no-repeat; }
+    .acao-fundo-2 { background: #111 url('img/acoes/acao-02.jpg') center/cover no-repeat; }
+    .acao-fundo-3 { background: #111 url('img/acoes/acao-03.jpg') center/cover no-repeat; }
+    .acao-fundo-4 { background: #111 url('img/acoes/acao-04.jpg') center/cover no-repeat; }
+    .acao-fundo-5 { background: #111 url('img/acoes/acao-05.jpg') center/cover no-repeat; }
+    .acao-fundo-6 { background: #111 url('img/acoes/acao-06.jpg') center/cover no-repeat; }
+
+    /* Ícones removidos — substituídos por fotos reais */
+    .acao-icone { display: none; }
+
+    /* Sombra reforçada para garantir legibilidade sobre fotos reais */
+    .acao-sombra {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.15) 100%);
+    }
+
+    .acao-conteudo { position: relative; z-index: 2; padding: 20px; }
+    .acao-num {
+      font-family: var(--fonte-titulo); font-size: 0.78rem;
+      letter-spacing: 3px; color: var(--vermelho); margin-bottom: 5px;
+    }
+    .acao-titulo {
+      font-family: var(--fonte-cond); font-size: 1.05rem;
+      font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--branco); margin-bottom: 5px;
+    }
+    .acao-desc {
+      font-size: 0.77rem; color: #888; line-height: 1.5;
+      max-height: 0; overflow: hidden; transition: max-height .4s;
+    }
+    .acao-card:hover .acao-desc { max-height: 80px; }
+    .acao-tag {
+      display: inline-block; margin-top: 8px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+      font-family: var(--fonte-cond); font-size: 0.62rem;
+      font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      padding: 2px 8px;
+    }
+
+
+    /* ─────────────────────────────────────────
+       8. BANNER — WHATSAPP
+    ───────────────────────────────────────── */
+    .banner-contato {
+      padding: 72px 8vw; text-align: center; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, var(--vermelho-escuro) 0%, var(--vermelho) 50%, var(--vermelho-escuro) 100%);
+    }
+    .banner-contato::before {
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        45deg, transparent 0, transparent 30px,
+        rgba(255,255,255,0.02) 30px, rgba(255,255,255,0.02) 32px
+      );
+    }
+    .banner-contato h2 {
+      font-family: var(--fonte-titulo);
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 10px; position: relative;
+    }
+    .banner-contato p {
+      font-family: var(--fonte-cond); font-size: 1rem;
+      color: rgba(255,255,255,0.7); margin-bottom: 30px; position: relative;
+    }
+    .btn-whatsapp {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25D366; color: var(--branco);
+      padding: 14px 38px;
+      font-family: var(--fonte-cond); font-size: 0.95rem;
+      font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+      transition: background .2s, transform .15s; position: relative;
+    }
+    .btn-whatsapp:hover { background: #1ebe5d; transform: translateY(-2px); }
+
+
+    /* ─────────────────────────────────────────
+       9. RODAPÉ
+    ───────────────────────────────────────── */
+    footer {
+      background: #090909; padding: 52px 8vw 28px;
+      border-top: 2px solid #181818;
+    }
+    .rodape-grid {
+      display: grid; grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 48px; margin-bottom: 40px;
+    }
+
+    .rodape-logo {
+      font-family: var(--fonte-titulo); font-size: 1.9rem; letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .rodape-logo .col-verde   { color: var(--verde-claro); }
+    .rodape-logo .col-vermelho{ color: var(--vermelho); }
+    .rodape-descricao { font-size: 0.82rem; color: #4a4a4a; line-height: 1.65; max-width: 250px; }
+
+    .rodape-redes { display: flex; gap: 8px; margin-top: 20px; }
+    .rede-btn {
+      width: 36px; height: 36px; background: #181818;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; color: #555; border: 1px solid #282828;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+    .rede-btn:hover { background: var(--vermelho); color: var(--branco); border-color: var(--vermelho); }
+
+    .rodape-col h4 {
+      font-family: var(--fonte-cond); font-size: 0.7rem;
+      font-weight: 800; letter-spacing: 3px; text-transform: uppercase;
+      color: #3a3a3a; margin-bottom: 16px;
+    }
+    .rodape-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .rodape-col ul li a { font-size: 0.83rem; color: #555; transition: color .2s; }
+    .rodape-col ul li a:hover { color: var(--branco); }
+
+    .rodape-base {
+      padding-top: 22px; border-top: 1px solid #181818;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 10px;
+    }
+    .rodape-base p { font-size: 0.72rem; color: #333; }
+    .rodape-base .destaque { color: var(--vermelho); }
+
+
+    /* ─────────────────────────────────────────
+       10. RESPONSIVO
+    ───────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .nav-links  { display: none; }
+      .hamburger  { display: flex; }
+
+      section { padding: 72px 6vw; }
+
+      .quem-grid    { grid-template-columns: 1fr; gap: 40px; }
+      .acoes-grid   { grid-template-columns: 1fr 1fr; }
+      .rodape-grid  { grid-template-columns: 1fr 1fr; }
+      .rodape-marca { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-conteudo    { padding: 0 6vw; }
+      .acoes-grid       { grid-template-columns: 1fr; }
+      .grid-camisetas   { grid-template-columns: 1fr 1fr; }
+      .rodape-grid      { grid-template-columns: 1fr; }
+    }
+
+
+    /* ─────────────────────────────────────────
+       11. ANIMAÇÕES
+    ───────────────────────────────────────── */
+    .animar {
+      opacity: 0; transform: translateY(16px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .animar.visivel { opacity: 1; transform: translateY(0); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-rotulo   { animation: fadeUp .5s ease forwards; }
+    .hero-titulo   { animation: fadeUp .5s ease .1s forwards; opacity: 0; }
+    .hero-descricao{ animation: fadeUp .5s ease .2s forwards; opacity: 0; }
+    .hero-botoes   { animation: fadeUp .5s ease .3s forwards; opacity: 0; }
+
+  </style>
+</head>
+<body>
+
+
+  <!-- ═══════════════════════════════════════════
+       NAVEGAÇÃO
+  ═══════════════════════════════════════════ -->
+  <nav>
+    <div class="nav-logo">
+      <span class="col-verde">[</span>
+      <span class="col-branco">UJS</span>
+      <span class="col-vermelho">]</span>
+      <span class="subtitulo">Cabrália</span>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#inicio"    class="ativo">Início</a></li>
+      <li><a href="#loja">Loja</a></li>
+      <li><a href="#quem-somos">Quem somos</a></li>
+      <li><a href="#acoes">Ações</a></li>
+      <li><a href="https://www.instagram.com/ujs_cabralia" target="_blank" class="nav-btn">Instagram</a></li>
+    </ul>
+
+    <button class="hamburger" onclick="alternarMenu()" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="menu-mobile" id="menuMobile">
+    <a href="#inicio"     onclick="alternarMenu()">Início</a>
+    <a href="#loja"       onclick="alternarMenu()">Loja</a>
+    <a href="#quem-somos" onclick="alternarMenu()">Quem somos</a>
+    <a href="#acoes"      onclick="alternarMenu()">Ações</a>
+    <a href="https://www.instagram.com/ujs_cabralia" target="_blank">Instagram</a>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       HERO — SEÇÃO INICIAL
+       Imagem de fundo: img/hero-bg.jpg
+  ═══════════════════════════════════════════ -->
+  <section id="inicio">
+    <div class="hero-fundo"></div>
+    <div class="hero-listras"></div>
+    <div class="hero-barra"></div>
+
+    <div class="hero-conteudo">
+      <div class="hero-rotulo">Núcleo de Santa Cruz Cabrália · Bahia</div>
+
+      <h1 class="hero-titulo">
+        <span class="vermelho">União da</span>
+        <span class="branco">Juventude</span>
+        <span class="verde">Socialista</span>
+      </h1>
+
+      <p class="hero-descricao">
+        A UJS Cabrália é o núcleo local da maior organização política de juventude 
+        da América Latina. Presente em Santa Cruz Cabrália para organizar, 
+        formar e mobilizar a juventude do sul da Bahia.
+      </p>
+
+      <div class="hero-botoes">
+        <a href="#quem-somos" class="btn-principal">Conheça a organização</a>
+        <a href="#loja"       class="btn-secundario">Acessar a loja →</a>
+      </div>
+    </div>
+
+    <div class="hero-seta">
+      <span>↓</span>
+    </div>
+  </section>
+
+  <div class="divisor"></div>
+
+
+  <!-- ═══════════════════════════════════════════
+       LOJA — CAMISETAS
+
+       COMO USAR IMAGENS:
+       1. Crie a pasta  img/camisetas/
+       2. Adicione as fotos: camisa-01.jpg, camisa-02.jpg ...
+       3. Em cada card, substitua o src da <img> pelo caminho correto
+       4. Se não tiver foto, o placeholder cinza aparece automaticamente
+  ═══════════════════════════════════════════ -->
+  <section id="loja">
+    <div class="rotulo">Loja Oficial</div>
+    <h2 class="titulo-secao">
+      Camisetas <span class="destaque-vermelho">UJS</span>
+      <span class="destaque-verde">Cabrália</span>
+    </h2>
+    <p class="intro">
+      Produtos oficiais do núcleo. Pedidos realizados diretamente pelo WhatsApp 
+      com confirmação via PIX.
+    </p>
+
+    <div class="grid-camisetas">
+
+      <!-- ── CAMISETA 01 ──
+           Foto: img/camisetas/camisa-01.jpg -->
+      <div class="card-camisa">
+        <div class="card-imagem">
+          <img src="img/camisetas/camisa-01.jpg" alt="Camiseta UJS Cabrália — Modelo Clássico"
+               onerror="this.style.display='none';" />
+          <div class="placeholder">
+            <span>👕</span>
+            img/camisetas/camisa-01.jpg
+          </div>
+          <div class="card-badge">Mais pedida</div>
+        </div>
+        <div class="card-corpo">
+          <div class="card-nome">Modelo Clássico</div>
+          <div class="card-detalhe">100% algodão · Cores: preto e vermelho · Tamanhos P ao GG</div>
+          <div class="card-rodape">
+            <div class="card-preco">R$45</div>
+            <a class="btn-pedir"
+               href="https://wa.me/5573XXXXXXXX?text=Quero+pedir+a+Camiseta+Clássica+UJS+Cabrália"
+               target="_blank">Pedir</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CAMISETA 02 ──
+           Foto: img/camisetas/camisa-02.jpg -->
+      <div class="card-camisa">
+        <div class="card-imagem">
+          <img src="img/camisetas/camisa-02.jpg" alt="Camiseta UJS Cabrália — Modelo Verde"
+               onerror="this.style.display='none';" />
+          <div class="placeholder">
+            <span>👕</span>
+            img/camisetas/camisa-02.jpg
+          </div>
+        </div>
+        <div class="card-corpo">
+          <div class="card-nome">Modelo Verde</div>
+          <div class="card-detalhe">100% algodão · Cor: verde escuro · Tamanhos P ao GG</div>
+          <div class="card-rodape">
+            <div class="card-preco">R$45</div>
+            <a class="btn-pedir"
+               href="https://wa.me/5573XXXXXXXX?text=Quero+pedir+a+Camiseta+Verde+UJS+Cabrália"
+               target="_blank">Pedir</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CAMISETA 03 ──
+           Foto: img/camisetas/camisa-03.jpg -->
+      <div class="card-camisa">
+        <div class="card-imagem">
+          <img src="img/camisetas/camisa-03.jpg" alt="Camiseta UJS Cabrália — Edição Especial"
+               onerror="this.style.display='none';" />
+          <div class="placeholder">
+            <span>👕</span>
+            img/camisetas/camisa-03.jpg
+          </div>
+          <div class="card-badge">Edição especial</div>
+        </div>
+        <div class="card-corpo">
+          <div class="card-nome">Edição Especial</div>
+          <div class="card-detalhe">100% algodão · Estampa comemorativa · Tamanhos P ao GG</div>
+          <div class="card-rodape">
+            <div class="card-preco">R$50</div>
+            <a class="btn-pedir"
+               href="https://wa.me/5573XXXXXXXX?text=Quero+pedir+a+Camiseta+Edição+Especial+UJS+Cabrália"
+               target="_blank">Pedir</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CAMISETA 04 ──
+           Foto: img/camisetas/camisa-04.jpg -->
+      <div class="card-camisa">
+        <div class="card-imagem">
+          <img src="img/camisetas/camisa-04.jpg" alt="Camiseta UJS Cabrália — Modelo Branco"
+               onerror="this.style.display='none';" />
+          <div class="placeholder">
+            <span>👕</span>
+            img/camisetas/camisa-04.jpg
+          </div>
+        </div>
+        <div class="card-corpo">
+          <div class="card-nome">Modelo Branco</div>
+          <div class="card-detalhe">100% algodão · Cor: branco · Tamanhos P ao GG</div>
+          <div class="card-rodape">
+            <div class="card-preco">R$45</div>
+            <a class="btn-pedir"
+               href="https://wa.me/5573XXXXXXXX?text=Quero+pedir+a+Camiseta+Branca+UJS+Cabrália"
+               target="_blank">Pedir</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- fim .grid-camisetas -->
+  </section>
+
+  <div class="divisor"></div>
+
+
+  <!-- ═══════════════════════════════════════════
+       QUEM SOMOS
+       Foto do núcleo: img/quem-somos.jpg (opcional)
+  ═══════════════════════════════════════════ -->
+  <section id="quem-somos">
+    <div class="quem-grid">
+
+      <!-- Visual -->
+      <div class="quem-visual">
+        <!-- Se tiver uma foto do núcleo, remova o .quem-placeholder e use:
+             <img src="img/quem-somos.jpg" alt="UJS Cabrália" class="quem-foto" /> -->
+        <div class="quem-placeholder">
+          <div class="quem-ano">desde 1984</div>
+        </div>
+
+        <div class="quem-numeros">
+          <div class="numero-item">
+            <div class="numero-valor">40+</div>
+            <div class="numero-label">Anos de organização</div>
+          </div>
+          <div class="numero-item">
+            <div class="numero-valor">BA</div>
+            <div class="numero-label">Sul da Bahia</div>
+          </div>
+          <div class="numero-item">
+            <div class="numero-valor">PCdoB</div>
+            <div class="numero-label">Partido</div>
+          </div>
+          <div class="numero-item">
+            <div class="numero-valor">Local</div>
+            <div class="numero-label">Núcleo municipal</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Texto -->
+      <div class="quem-texto">
+        <div class="rotulo">Sobre a organização</div>
+        <h2 class="titulo-secao">
+          UJS <span class="destaque-vermelho">Cabrália</span>
+        </h2>
+        <p class="intro">
+          A União da Juventude Socialista foi fundada em 22 de setembro de 1984 e 
+          é a organização política de juventude vinculada ao Partido Comunista do Brasil. 
+          O núcleo de Santa Cruz Cabrália sob nova direção, reúne jovens do município com o objetivo 
+          de promover formação política, participação social e organização da juventude local.
+        </p>
+
+        <div class="quem-pilares">
+          <div class="pilar animar">
+            <div class="pilar-icone">📚</div>
+            <div>
+              <div class="pilar-titulo">Formação política</div>
+              <div class="pilar-desc">
+                Promoção de debates, seminários e espaços de estudo sobre 
+                política, direitos e sociedade.
+              </div>
+            </div>
+          </div>
+          <div class="pilar animar">
+            <div class="pilar-icone">🤝</div>
+            <div>
+              <div class="pilar-titulo">Organização popular</div>
+              <div class="pilar-desc">
+                Articulação com movimentos estudantis, sindicais e comunitários 
+                em Santa Cruz Cabrália.
+              </div>
+            </div>
+          </div>
+          <div class="pilar animar">
+            <div class="pilar-icone">🗳️</div>
+            <div>
+              <div class="pilar-titulo">Participação institucional</div>
+              <div class="pilar-desc">
+                Presença ativa nos espaços de representação da juventude 
+                nos âmbitos municipal e estadual.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divisor"></div>
+
+
+  <!-- ═══════════════════════════════════════════
+       AÇÕES
+       Fotos opcionais: img/acoes/acao-01.jpg ... acao-06.jpg
+  ═══════════════════════════════════════════ -->
+  <section id="acoes">
+    <div class="rotulo">Atuação</div>
+    <h2 class="titulo-secao">
+      Áreas de <span class="destaque-vermelho">atuação</span>
+    </h2>
+    <p class="intro">
+      O núcleo da UJS Cabrália desenvolve atividades em seis frentes principais, 
+      voltadas ao fortalecimento da juventude no município.
+    </p>
+
+    <div class="acoes-grid">
+
+      <div class="acao-card">
+        <div class="acao-fundo acao-fundo-1"></div>
+        <!-- Foto opcional: <img src="img/acoes/acao-01.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35"> -->
+        <div class="acao-icone">🎓</div>
+        <div class="acao-sombra"></div>
+        <div class="acao-conteudo">
+          <div class="acao-num">01</div>
+          <div class="acao-titulo">Movimento estudantil</div>
+          <div class="acao-desc">Apoio à organização dos grêmios estudantis e à representação dos estudantes da rede pública municipal.</div>
+          <div class="acao-tag">Educação</div>
+        </div>
+      </div>
+
+      <div class="acao-card">
+        <div class="acao-fundo acao-fundo-2"></div>
+        <div class="acao-icone">💬</div>
+        <div class="acao-sombra"></div>
+        <div class="acao-conteudo">
+          <div class="acao-num">02</div>
+          <div class="acao-titulo">Formação e debates</div>
+          <div class="acao-desc">Realização de rodas de conversa, seminários e atividades de formação política para jovens.</div>
+          <div class="acao-tag">Formação</div>
+        </div>
+      </div>
+
+      <div class="acao-card">
+        <div class="acao-fundo acao-fundo-3"></div>
+        <div class="acao-icone">📢</div>
+        <div class="acao-sombra"></div>
+        <div class="acao-conteudo">
+          <div class="acao-num">03</div>
+          <div class="acao-titulo">Mobilização política</div>
+          <div class="acao-desc">Participação em atos, campanhas e iniciativas de mobilização nos espaços públicos do município.</div>
+          <div class="acao-tag">Mobilização</div>
+        </div>
+      </div>
+
+      <div class="acao-card">
+        <div class="acao-fundo acao-fundo-4"></div>
+        <div class="acao-icone">🤝</div>
+        <div class="acao-sombra"></div>
+        <div class="acao-conteudo">
+          <div class="acao-num">04</div>
+          <div class="acao-titulo">Ação comunitária</div>
+          <div class="acao-desc">Campanhas solidárias e iniciativas de apoio às comunidades em situação de vulnerabilidade social.</div>
+          <div class="acao-tag">Comunidade</div>
+        </div>
+      </div>
+
+      <div class="acao-card">
+        <div class="acao-fundo acao-fundo-5"></div>
+        <div class="acao-icone">🎨</div>
+        <div class="acao-sombra"></div>
+        <div class="acao-conteudo">
+          <div class="acao-num">05</div>
+          <div class="acao-titulo">Cultura e expressão</div>
+          <div class="acao-desc">Promoção de atividades culturais como forma de fortalecimento da identidade e da participação juvenil.</div>
+          <div class="acao-tag">Cultura</div>
+        </div>
+      </div>
+
+      <div class="acao-card">
+        <div class="acao-fundo acao-fundo-6"></div>
+        <div class="acao-icone">🌱</div>
+        <div class="acao-sombra"></div>
+        <div class="acao-conteudo">
+          <div class="acao-num">06</div>
+          <div class="acao-titulo">Meio ambiente</div>
+          <div class="acao-desc">Defesa do litoral e do território de Santa Cruz Cabrália, com ações voltadas à preservação ambiental.</div>
+          <div class="acao-tag">Território</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       BANNER — CONTATO
+  ═══════════════════════════════════════════ -->
+  <div class="banner-contato">
+    <h2>Entre em contato</h2>
+    <p>Dúvidas sobre produtos ou sobre a organização? Fale diretamente com o UJS Cabrália.</p>
+    <a href="https://wa.me/5573XXXXXXXX?text=Olá,+vim+pelo+site+da+UJS"
+       target="_blank" class="btn-whatsapp">
+      💬 Chamar no WhatsApp
+    </a>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       RODAPÉ
+  ═══════════════════════════════════════════ -->
+  <footer>
+    <div class="rodape-grid">
+
+      <div class="rodape-marca">
+        <div class="rodape-logo">
+          <span class="col-verde">[</span>UJS<span class="col-vermelho">]</span> Cabrália
+        </div>
+        <p class="rodape-descricao">
+          Núcleo da União da Juventude Socialista em Santa Cruz Cabrália, Bahia. 
+          Vinculado ao Partido Comunista do Brasil.
+        </p>
+        <div class="rodape-redes">
+          <a href="https://www.instagram.com/ujs_cabralia" target="_blank"
+             class="rede-btn" title="Instagram">📷</a>
+          <a href="https://wa.me/5573XXXXXXXX" target="_blank"
+             class="rede-btn" title="WhatsApp">💬</a>
+        </div>
+      </div>
+
+      <div class="rodape-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#loja">Loja</a></li>
+          <li><a href="#quem-somos">Quem somos</a></li>
+          <li><a href="#acoes">Ações</a></li>
+        </ul>
+      </div>
+
+      <div class="rodape-col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/ujs_cabralia" target="_blank">@UJS_Cabrália</a></li>
+          <li><a href="https://wa.me/5573XXXXXXXX" target="_blank">WhatsApp</a></li>
+          <li><a href="mailto:ujscabralia@gmail.com">ujscabralia@gmail.com</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="rodape-base">
+      <p>© 2026 UJS Cabrália · Santa Cruz Cabrália, Bahia</p>
+      <p>Feito com <span class="destaque">♥</span> pelo núcleo</p>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════════ -->
+  <script>
+
+    /* ── Menu mobile ── */
+    function alternarMenu() {
+      document.getElementById('menuMobile').classList.toggle('aberto');
+    }
+
+    /* ── Link ativo no nav conforme scroll ── */
+    const secoes   = document.querySelectorAll('section[id]');
+    const linksNav = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let atual = '';
+      secoes.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 90) atual = s.id;
+      });
+      linksNav.forEach(a => {
+        a.classList.remove('ativo');
+        if (a.getAttribute('href') === '#' + atual) a.classList.add('ativo');
+      });
+    });
+
+    /* ── Animação de entrada dos elementos ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visivel');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.animar, .card-camisa, .acao-card, .pilar')
+      .forEach(el => observer.observe(el));
+
+  </script>
+
+</body>
+</html>
